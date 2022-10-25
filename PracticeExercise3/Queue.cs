@@ -42,5 +42,25 @@ namespace PracticeExercise3
             // you are adding to the back of the queue, therefore AddLast()
             linkedList.AddLast(item);
         }
+
+        public override string ToString()
+        {
+            string result = "<Back> ";
+
+            var currentNode = linkedList.Last;
+            while (currentNode != null)
+            {
+                result += currentNode.Value;
+                if (currentNode.Previous != null)
+                {
+                    result += " → ";
+                }
+                currentNode = currentNode.Previous;
+            }
+
+            result += " <Front>";
+
+            return result;
+        }
     }
 }
